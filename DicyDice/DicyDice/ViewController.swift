@@ -80,6 +80,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         node.position = SCNVector3(x: hitResult.worldTransform.columns.3.x, y: hitResult.worldTransform.columns.3.y + node.boundingSphere.radius, z: hitResult.worldTransform.columns.3.z)
                 
                         sceneView.scene.rootNode.addChildNode(node)
+                
+                    let randomX = Float(arc4random_uniform(4) + 1) * (Float.pi/2)
+                    let randomZ = Float(arc4random_uniform(4) + 1) * (Float.pi/2)
+                    
+                    node.runAction(SCNAction.rotateBy(x: CGFloat(randomX * 5), y: 0, z: CGFloat(randomZ * 5), duration: 0.5))
                 }
             }
         }
