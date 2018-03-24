@@ -44,8 +44,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //sceneView.scene.rootNode.addChildNode(node)
         
         let scene = SCNScene(named: "art.scnassets/diceCollada.scn")!
-        let node = scene.rootNode.childNode(withName: "Dice", recursively: true)
         
+        if let node = scene.rootNode.childNode(withName: "Dice", recursively: true) {
+        
+            node.position = SCNVector3(x: 0, y: 0, z: -0.1)
+        
+            sceneView.scene.rootNode.addChildNode(node)
+        }
         sceneView.autoenablesDefaultLighting = true
     }
     
